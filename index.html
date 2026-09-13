@@ -97,9 +97,10 @@ h1{
 
 #box7,
 #weeklyForecast{
-    width:40%;
+    width:60%;
     box-sizing:border-box;
 }
+
 .weather-box h2{
     color:#60a5fa;
     border-bottom:1px solid #334155;
@@ -1649,6 +1650,19 @@ const avgPressure =
     (pressureSum / weightSum).toFixed(1);
 const avgRainAmount =
     (rainAmountSum / weightSum).toFixed(1);
+    const currentHour =
+    new Date(forecastTime).getHours();
+
+let currentPeriod = "☀️ Eftermiddag";
+
+if(currentHour >= 18)
+    currentPeriod = "🌆 Kväll";
+
+else if(currentHour < 6)
+    currentPeriod = "🌙 Natt";
+
+else if(currentHour < 12)
+    currentPeriod = "🌅 Morgon";
 let avgRainAmountClass = "rain-low";
 
 if(Number(avgRainAmount) >= 2 &&
@@ -1664,7 +1678,7 @@ if(Number(avgRainAmount) >= 10)
 
 document.getElementById("box7").innerHTML = `
 
-<h2>📅 Dagens väder</h2>
+<h2>${currentPeriod} Dagens väder</h2>
 
 <div style="
 display:grid;
