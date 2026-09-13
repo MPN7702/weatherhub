@@ -1554,6 +1554,13 @@ function getPeriodData(startHour,endHour){
         for(let i=0;i<h.time.length;i++){
 
             const t = new Date(h.time[i]);
+            if(
+    t.toISOString().substring(0,10)
+    !==
+    forecastTime.substring(0,10)
+){
+    continue;
+}
             const hh = t.getHours();
 
             if(hh < startHour || hh >= endHour)
