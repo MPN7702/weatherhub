@@ -1726,19 +1726,7 @@ const avgPressure =
     (pressureSum / weightSum).toFixed(1);
 const avgRainAmount =
     (rainAmountSum / weightSum).toFixed(1);
-    const currentHour =
-    new Date(forecastTime).getHours();
 
-let currentPeriod = "☀️ Eftermiddag";
-
-if(currentHour >= 18)
-    currentPeriod = "🌆 Kväll";
-
-else if(currentHour < 6)
-    currentPeriod = "🌙 Natt";
-
-else if(currentHour < 12)
-    currentPeriod = "🌅 Morgon";
 let avgRainAmountClass = "rain-low";
 
 if(Number(avgRainAmount) >= 2 &&
