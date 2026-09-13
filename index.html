@@ -1524,7 +1524,6 @@ const forecastTime =
 
 if(!forecastTime)
     return;
-function getPeriodData(startHour,endHour){
 function getPeriodWeatherText(startHour, endHour){
 
     let votes = {};
@@ -1593,6 +1592,7 @@ function getPeriodWeatherText(startHour, endHour){
 
     return weatherMap[topCode] ?? "❓ Okänt";
 }
+    function getPeriodData(startHour,endHour){
     let tempSum = 0;
     let windSum = 0;
     let rainSum = 0;
