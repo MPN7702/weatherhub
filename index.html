@@ -1553,19 +1553,12 @@ if(perchScore > bestScore){
 if(zanderScore > bestScore){
     bestScore = zanderScore;
 }
-            const waterTemp = window.waterTemp ?? "--";
-
 const waterTempText = `
 <div>
     🌤️ Stabilt väder:
     <strong style="color:${stableWeather ? '#22c55e' : 'inherit'};">
         ${stableWeather ? "Ja" : "Nej"}
     </strong>
-</div>
-
-<div>
-    🌊 Vattentemperatur Fryken:
-    <strong>${waterTemp} °C</strong>
 </div>
 
 <br>
