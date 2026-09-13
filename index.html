@@ -1126,18 +1126,6 @@ const weatherTextColored =
 html += `
                 <div class="forecast-day">
 
-<div style="
-position:absolute;
-right:10px;
-top:10px;
-font-size:13px;
-color:#fbbf24;
-">
-☀️ Sol<br>
-🌅 ${sunrise}<br>
-🌇 ${sunset}
-</div>
-
 <strong style="color:#60a5fa;font-size:18px;">
 ${weekday} ${dayDate}
 </strong><br>
@@ -1201,7 +1189,20 @@ ${rainFlag
 🌦️ Översikt:
 <br>
 <strong>${weatherTextColored}</strong>
+
 <br><br>
+
+<div style="
+font-size:13px;
+color:#fbbf24;
+">
+☀️ Sol<br>
+🌅 ${sunrise}<br>
+🌇 ${sunset}
+</div>
+
+<br>
+
 
                 </div>
             `;
