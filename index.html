@@ -1848,15 +1848,8 @@ document.getElementById("box7").innerHTML = `
 </h2>
 
 <div style="
-overflow-x:auto;
-overflow-y:hidden;
--webkit-overflow-scrolling:touch;
-padding-bottom:5px;
-">
-
-<div style="
 display:grid;
-grid-template-columns:repeat(4,200px);
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:10px;
 margin-top:15px;
 ">
@@ -2034,8 +2027,6 @@ ${eveningWeather.split(" ")[0]}
 
 <div>
     ${evening?.rain ?? "--"} mm
-</div>
-
 </div>
 
 </div>
