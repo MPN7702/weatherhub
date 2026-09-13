@@ -1664,59 +1664,72 @@ if(Number(avgRainAmount) >= 10)
 
 document.getElementById("box7").innerHTML = `
 
-<h2>📊 24-timmarsprognos</h2>
+<h2>📅 Dagens väder</h2>
 
 <div style="
-    margin-bottom:15px;
-    color:#93c5fd;
-    font-size:18px;
-    font-weight:bold;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:15px;
 ">
 
-${capitalizedDate}
-
-<br><br>
-
-Klockan: ${displayTime} (24-timmarsprognos)
-
-<br>
-
-<span id="box7-timer">
-    Nästa timme om ${countdown} sek
-</span>
-
-
+<div style="
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:10px;
+padding:10px;
+">
+<div style="color:#93c5fd;font-weight:bold;">🌆 Kväll</div>
+<div style="font-size:28px;margin:8px 0;">☁️</div>
+<div><strong>${avgTemp}°C</strong></div>
+<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
+<div>${avgWind} m/s</div>
+<div>${avgRainAmount} mm</div>
 </div>
 
-<hr style="
-    border:none;
-    border-top:1px solid #334155;
-    margin:15px 0;
+<div style="
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:10px;
+padding:10px;
 ">
+<div style="color:#93c5fd;font-weight:bold;">🌙 Natt</div>
+<div style="font-size:28px;margin:8px 0;">🌙</div>
+<div><strong>${avgTemp}°C</strong></div>
+<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
+<div>${avgWind} m/s</div>
+<div>${avgRainAmount} mm</div>
+</div>
 
-Temperatur:
-<span class="${avgTempClass}">
-<b>${avgTemp} °C</b>
-</span>
+<div style="
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:10px;
+padding:10px;
+">
+<div style="color:#93c5fd;font-weight:bold;">🌅 Morgon</div>
+<div style="font-size:28px;margin:8px 0;">🌤️</div>
+<div><strong>${avgTemp}°C</strong></div>
+<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
+<div>${avgWind} m/s</div>
+<div>${avgRainAmount} mm</div>
+</div>
 
-<br><br>
+<div style="
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:10px;
+padding:10px;
+">
+<div style="color:#93c5fd;font-weight:bold;">☀️ Eftermiddag</div>
+<div style="font-size:28px;margin:8px 0;">⛅</div>
+<div><strong>${avgTemp}°C</strong></div>
+<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
+<div>${avgWind} m/s</div>
+<div>${avgRainAmount} mm</div>
+</div>
 
-Vind:
-<span class="${avgWindClass}">
-<b>${avgWind} m/s ${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</b>
-</span>
-
-<br><br>
-
-Lufttryck:
-<b>${avgPressure} hPa</b>
-
-<br><br>
-
-Regnmängd:
-<span class="${avgRainAmountClass}">
-<b>${avgRainAmount} mm</b>
-</span>
+</div>
 
 `;
 }
