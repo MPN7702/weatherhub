@@ -236,9 +236,6 @@ h1{
     .forecast-day{
         padding-top:70px;
     }
-#box7 > div > div{
-    grid-template-columns:repeat(2,1fr) !important;
-}
     
 }
 
@@ -1852,7 +1849,9 @@ document.getElementById("box7").innerHTML = `
 
 <div style="
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:${window.innerWidth <= 768
+    ? 'repeat(2,1fr)'
+    : 'repeat(auto-fit,minmax(180px,1fr))'};
 gap:10px;
 margin-top:15px;
 ">
