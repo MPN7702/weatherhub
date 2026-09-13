@@ -1848,8 +1848,15 @@ document.getElementById("box7").innerHTML = `
 </h2>
 
 <div style="
+overflow-x:auto;
+overflow-y:hidden;
+-webkit-overflow-scrolling:touch;
+padding-bottom:5px;
+">
+
+<div style="
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(4,200px);
 gap:10px;
 margin-top:15px;
 ">
@@ -2033,8 +2040,9 @@ ${eveningWeather.split(" ")[0]}
 
 </div>
 
+</div>
+
 `;
-}
 async function loadAllData(){
 
 await Promise.all(
