@@ -1769,15 +1769,40 @@ border:1px solid rgba(255,255,255,0.05);
 border-radius:10px;
 padding:10px;
 ">
-<div style="color:#93c5fd;font-weight:bold;">🌆 Kväll</div>
-<div style="font-size:28px;margin:8px 0;">☁️</div>
-<div><strong>${evening?.temp ?? "--"}°C</strong></div>
-<div>
-${getWindArrow(evening?.dir ?? 0)}
-${getWindDirection(evening?.dir ?? 0)}
+<div style="color:#93c5fd;font-weight:bold;">
+    🌆 Kväll (18-24)
 </div>
-<div>${evening?.wind ?? "--"} m/s</div>
-<div>${evening?.rain ?? "--"} mm</div>
+<div style="font-size:28px;margin:8px 0;">☁️</div>
+<div style="font-size:28px;margin:8px 0;">☁️</div>
+
+<div style="font-weight:bold;margin-bottom:8px;">
+    Mulet
+</div>
+
+<div style="font-size:13px;color:#93c5fd;">
+    🌡️ Temperatur
+</div>
+
+<div style="margin-bottom:8px;">
+    <strong>${evening?.temp ?? "--"}°C</strong>
+</div>
+
+<div style="font-size:13px;color:#93c5fd;">
+    🌬️ Vind
+</div>
+
+<div style="margin-bottom:8px;">
+    ${getWindDirection(evening?.dir ?? 0)}
+    ${evening?.wind ?? "--"} m/s
+</div>
+
+<div style="font-size:13px;color:#93c5fd;">
+    💧 Nederbörd
+</div>
+
+<div>
+    ${evening?.rain ?? "--"} mm
+</div>
 </div>
 
 <div style="
