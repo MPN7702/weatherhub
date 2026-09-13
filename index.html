@@ -1536,7 +1536,76 @@ const forecastTime =
 
 if(!forecastTime)
     return;
+function getPeriodData(startHour,endHour){
 
+    let tempSum = 0;
+    let windSum = 0;
+    let rainSum = 0;
+    let windX = 0;
+    let windY = 0;
+    let weightSum = 0;
+
+    models.forEach(model => {
+
+        const h = model.data?.hourly;
+
+        if(!h?.time) return;
+
+        for(let i=0;i<h.time.length;i++){
+
+            const t = new Date(h.time[i]);
+            const hh = t.getHours();
+
+            if(hh < startHour || hh >= endHour)
+                continue;
+
+            const weight =
+                weights[model.model] ?? 0;
+
+            tempSum +=
+                (h.temperature_2m?.[i] ?? 0) * weight;
+
+            const wind =
+                (h.wind_speed_10m?.[i] ?? 0)
+                * WIND_FACTOR;
+
+            windSum += wind * weight;
+
+            rainSum +=
+                (h.precipitation?.[i] ?? 0)
+                * weight;
+
+            const dir =
+                h.wind_direction_10m?.[i] ?? 0;
+
+            const rad =
+                dir * Math.PI / 180;
+
+            windX +=
+                Math.sin(rad) * wind * weight;
+
+            windY +=
+                Math.cos(rad) * wind * weight;
+
+            weightSum += weight;
+        }
+
+    });
+
+    if(weightSum === 0)
+        return null;
+
+    return {
+        temp:(tempSum/weightSum).toFixed(1),
+        wind:(windSum/weightSum).toFixed(1),
+        rain:(rainSum/weightSum).toFixed(1),
+        dir:(
+            Math.atan2(windX,windY)
+            *180/Math.PI
+            +360
+        )%360
+    };
+}
 const displayTime =
     new Date(forecastTime)
         .toLocaleString("sv-SE", {
@@ -1675,7 +1744,17 @@ if(Number(avgRainAmount) >= 10)
 {
     avgRainAmountClass = "rain-high";
 }
+const night =
+    getPeriodData(0,6);
 
+const morning =
+    getPeriodData(6,12);
+
+const afternoon =
+    getPeriodData(12,18);
+
+const evening =
+    getPeriodData(18,24);
 document.getElementById("box7").innerHTML = `
 
 <h2>${currentPeriod} Dagens väder</h2>
