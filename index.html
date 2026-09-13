@@ -1789,24 +1789,7 @@ currentLocation = ortnamn;
 
 
 forecastIndex = startIndex;
-try {
 
-    const response =
-        await fetch("water_temp.json");
-
-    const data =
-        await response.json();
-
-window.waterTemp =
-    Number(data.ovre_fryken) + 1.6;
-
-} catch (error) {
-
-    console.error("Kunde inte läsa vatten_temp.json");
-
-    window.waterTemp = "--";
-
-}
     await loadAllData();
 
 });
@@ -2330,24 +2313,6 @@ await updateWeeklyForecast();
 
 async function startDashboard(){
 
-    try {
-
-        const response =
-            await fetch("water_temp.json");
-
-        const data =
-            await response.json();
-
-window.waterTemp =
-    Number(data.ovre_fryken) + 1.6;
-
-    } catch (error) {
-
-        console.error("Kunde inte läsa water_temp.json");
-
-        window.waterTemp = "--";
-
-    }
 
     await loadAllData();
 
