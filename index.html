@@ -135,21 +135,6 @@ h1{
     color:#d50000;
 }
 
-.score-low{
-    color:#ef4444;
-}
-
-.score-mid{
-    color:#f97316;
-}
-
-.score-good{
-    color:#eab308;
-}
-
-.score-best{
-    color:#22c55e;
-}
     .conf-high{
     color:#22c55e;
 }
@@ -980,7 +965,6 @@ else
       rainHistory.push(
     Number(rainAmount)
 );      
-        let stableWeather = false;
 
 if(i >= 2){
 const pressureStable =
@@ -1423,8 +1407,6 @@ function getWindArrow(degrees) {
     ];
 }
 
-function getScoreClass(score){
-
     if(score >= 20)
         return "score-best";
 
@@ -1439,8 +1421,6 @@ function getScoreClass(score){
 
     return "score-low";
 }
-
-function getFishingStars(score){
 
     if(score >= 20)
         return "★★★★★";
