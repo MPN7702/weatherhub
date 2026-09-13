@@ -1820,6 +1820,19 @@ const afternoonWeather =
 
 const eveningWeather =
     getPeriodWeatherText(18,24);
+    const currentHour = new Date().getHours();
+
+const activeNight =
+    currentHour >= 0 && currentHour < 6;
+
+const activeMorning =
+    currentHour >= 6 && currentHour < 12;
+
+const activeAfternoon =
+    currentHour >= 12 && currentHour < 18;
+
+const activeEvening =
+    currentHour >= 18;
 document.getElementById("box7").innerHTML = `
 
 <h2>
@@ -1842,8 +1855,8 @@ margin-top:15px;
 ">
 
 <div style="
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
+background:${activeNight ? 'rgba(96,165,250,0.20)' : 'rgba(255,255,255,0.03)'};
+border:${activeNight ? '2px solid #60a5fa' : '1px solid rgba(255,255,255,0.05)'};
 border-radius:10px;
 padding:10px;
 ">
@@ -1887,8 +1900,8 @@ ${night?.rain ?? "--"} mm
 </div>
 
 <div style="
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
+background:${activeMorning ? 'rgba(96,165,250,0.20)' : 'rgba(255,255,255,0.03)'};
+border:${activeMorning ? '2px solid #60a5fa' : '1px solid rgba(255,255,255,0.05)'};
 border-radius:10px;
 padding:10px;
 ">
@@ -1931,8 +1944,8 @@ ${morning?.rain ?? "--"} mm
 </div>
 
 <div style="
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
+background:${activeAfternoon ? 'rgba(96,165,250,0.20)' : 'rgba(255,255,255,0.03)'};
+border:${activeAfternoon ? '2px solid #60a5fa' : '1px solid rgba(255,255,255,0.05)'};
 border-radius:10px;
 padding:10px;
 ">
@@ -1974,8 +1987,8 @@ ${afternoon?.rain ?? "--"} mm
 
 </div>
 <div style="
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
+background:${activeEvening ? 'rgba(96,165,250,0.20)' : 'rgba(255,255,255,0.03)'};
+border:${activeEvening ? '2px solid #60a5fa' : '1px solid rgba(255,255,255,0.05)'};
 border-radius:10px;
 padding:10px;
 ">
