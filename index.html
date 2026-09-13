@@ -1554,10 +1554,14 @@ function getPeriodData(startHour,endHour){
         for(let i=0;i<h.time.length;i++){
 
             const t = new Date(h.time[i]);
-            if(
-    t.toISOString().substring(0,10)
-    !==
-    forecastTime.substring(0,10)
+const today =
+    new Date()
+        .toISOString()
+        .substring(0,10);
+
+if(
+    h.time[i].substring(0,10)
+    !== today
 ){
     continue;
 }
@@ -1891,7 +1895,6 @@ async function startDashboard(){
         }
 
         if(countdown === 5){
-            updateAIBox(forecastIndex);
         }
 
     },1000);
