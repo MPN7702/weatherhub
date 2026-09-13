@@ -1774,10 +1774,13 @@ padding:10px;
 ">
 <div style="color:#93c5fd;font-weight:bold;">🌆 Kväll</div>
 <div style="font-size:28px;margin:8px 0;">☁️</div>
-<div><strong>${avgTemp}°C</strong></div>
-<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
-<div>${avgWind} m/s</div>
-<div>${avgRainAmount} mm</div>
+<div><strong>${evening?.temp ?? "--"}°C</strong></div>
+<div>
+${getWindArrow(evening?.dir ?? 0)}
+${getWindDirection(evening?.dir ?? 0)}
+</div>
+<div>${evening?.wind ?? "--"} m/s</div>
+<div>${evening?.rain ?? "--"} mm</div>
 </div>
 
 <div style="
@@ -1788,10 +1791,14 @@ padding:10px;
 ">
 <div style="color:#93c5fd;font-weight:bold;">🌙 Natt</div>
 <div style="font-size:28px;margin:8px 0;">🌙</div>
-<div><strong>${avgTemp}°C</strong></div>
-<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
-<div>${avgWind} m/s</div>
-<div>${avgRainAmount} mm</div>
+<div><strong>${night?.temp ?? "--"}°C</strong></div>
+<div>
+${getWindArrow(night?.dir ?? 0)}
+${getWindDirection(night?.dir ?? 0)}
+</div>
+<div>${night?.wind ?? "--"} m/s</div>
+<div>${night?.rain ?? "--"} mm</div>
+``
 </div>
 
 <div style="
@@ -1802,10 +1809,13 @@ padding:10px;
 ">
 <div style="color:#93c5fd;font-weight:bold;">🌅 Morgon</div>
 <div style="font-size:28px;margin:8px 0;">🌤️</div>
-<div><strong>${avgTemp}°C</strong></div>
-<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
-<div>${avgWind} m/s</div>
-<div>${avgRainAmount} mm</div>
+<div><strong>${morning?.temp ?? "--"}°C</strong></div>
+<div>
+${getWindArrow(morning?.dir ?? 0)}
+${getWindDirection(morning?.dir ?? 0)}
+</div>
+<div>${morning?.wind ?? "--"} m/s</div>
+<div>${morning?.rain ?? "--"} mm</div>
 </div>
 
 <div style="
@@ -1816,10 +1826,14 @@ padding:10px;
 ">
 <div style="color:#93c5fd;font-weight:bold;">☀️ Eftermiddag</div>
 <div style="font-size:28px;margin:8px 0;">⛅</div>
-<div><strong>${avgTemp}°C</strong></div>
-<div>${getWindArrow(avgWindDirection)} ${getWindDirection(avgWindDirection)}</div>
-<div>${avgWind} m/s</div>
-<div>${avgRainAmount} mm</div>
+<div><strong>${afternoon?.temp ?? "--"}°C</strong></div>
+<div>
+${getWindArrow(afternoon?.dir ?? 0)}
+${getWindDirection(afternoon?.dir ?? 0)}
+</div>
+<div>${afternoon?.wind ?? "--"} m/s</div>
+<div>${afternoon?.rain ?? "--"} mm</div>
+``
 </div>
 
 </div>
