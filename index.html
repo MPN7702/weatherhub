@@ -2186,7 +2186,12 @@ if ("serviceWorker" in navigator) {
 }
 
 let deferredPrompt;
+const isiPhone =
+    /iPhone|iPad|iPod/.test(navigator.userAgent);
 
+if (isiPhone) {
+    document.getElementById("installBtn").style.display = "inline-block";
+}
 window.addEventListener("beforeinstallprompt", (e) => {
 
     e.preventDefault();
@@ -2197,6 +2202,15 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 async function installPWA() {
+
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+
+        alert(
+            "Öppna Dela-menyn i Safari och välj 'Lägg till på hemskärmen'."
+        );
+
+        return;
+    }
 
     if (!deferredPrompt)
         return;
