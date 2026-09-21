@@ -477,6 +477,9 @@ const forecastMonth =
 
 let maxTemps = [];
 let minTemps = [];
+let weightedMaxTemp = 0;
+let weightedMinTemp = 0;
+let tempWeightTotal = 0;
 
 models.forEach(model => {
 
@@ -501,32 +504,48 @@ models.forEach(model => {
         }
     }
 
-    if (dayTemps.length) {
+if (dayTemps.length) {
 
-        maxTemps.push(
-            Math.max(...dayTemps)
-        );
+    const modelMax =
+        Math.max(...dayTemps);
 
-        minTemps.push(
-            Math.min(...dayTemps)
-        );
-    }
+    const modelMin =
+        Math.min(...dayTemps);
+
+    maxTemps.push(modelMax);
+    minTemps.push(modelMin);
+
+    const weight =
+        weights[model.model] ?? 0;
+
+    weightedMaxTemp +=
+        modelMax * weight;
+
+    weightedMinTemp +=
+        modelMin * weight;
+
+    tempWeightTotal += weight;
+}
 
 });
 if(!maxTemps.length || !minTemps.length)
     continue;
 
+if(tempWeightTotal === 0)
+    continue;
+
 const maxTemp =
-    (
-        maxTemps.reduce((a,b)=>a+b,0)
-        / maxTemps.length
-    ).toFixed(1);
+(
+    weightedMaxTemp
+    / tempWeightTotal
+).toFixed(1);
 
 const minTemp =
-    (
-        minTemps.reduce((a,b)=>a+b,0)
-        / minTemps.length
-    ).toFixed(1);
+(
+    weightedMinTemp
+    / tempWeightTotal
+).toFixed(1);
+``
             tempHistory.push(
     (Number(maxTemp) + Number(minTemp)) / 2
 );
@@ -547,6 +566,9 @@ const hourlyTimes =
 
 if (!hourlyTimes)
     continue;
+
+let weightedRain = 0;
+let rainWeightTotal = 0;
 
 let rainTotals = [];
 
@@ -572,15 +594,24 @@ models.forEach(model => {
 
     rainTotals.push(modelRainSum);
 
+const weight =
+    weights[model.model] ?? 0;
+
+weightedRain +=
+    modelRainSum * weight;
+
+rainWeightTotal += weight;
+
 });
 if(!rainTotals.length)
     continue;
+if(rainWeightTotal === 0)
+    continue;
+
 const rainAmount =
 (
-    rainTotals.reduce(
-        (a,b) => a + b,
-        0
-    ) / rainTotals.length
+    weightedRain
+    / rainWeightTotal
 ).toFixed(1);
 
 let rainAmountClass = "rain-low";
@@ -700,6 +731,10 @@ if(
 }
 let windSpeeds = [];
 let windGusts = [];
+
+let weightedWindSpeed = 0;
+let weightedWindGust = 0;
+let windWeightTotal = 0;
 let windX = 0;
 let windY = 0;
 
@@ -755,31 +790,46 @@ windY +=
         }
     }
 
-    if (dayWinds.length) {
+if (dayWinds.length) {
 
-        windSpeeds.push(
-            dayWinds.reduce((a,b)=>a+b,0)
-            / dayWinds.length
-        );
+    const avgWind =
+        dayWinds.reduce((a,b)=>a+b,0)
+        / dayWinds.length;
 
-    }
+    const weight =
+        weights[model.model] ?? 0;
 
-    if (dayGusts.length) {
+    weightedWindSpeed +=
+        avgWind * weight;
 
-        windGusts.push(
-            Math.max(...dayGusts)
-        );
+    windWeightTotal +=
+        weight;
 
-    }
+    windSpeeds.push(avgWind);
+}
+
+if (dayGusts.length) {
+
+    const modelGust =
+        Math.max(...dayGusts);
+
+    const weight =
+        weights[model.model] ?? 0;
+
+    weightedWindGust +=
+        modelGust * weight;
+
+    windGusts.push(modelGust);
+}
 
 });
 
 const windSpeed =
-    windSpeeds.length
+    windWeightTotal > 0
         ? (
             (
-                windSpeeds.reduce((a,b)=>a+b,0)
-                / windSpeeds.length
+                weightedWindSpeed
+                / windWeightTotal
             ) * WIND_FACTOR
           ).toFixed(1)
         : "--";
@@ -798,11 +848,11 @@ if(Number(windSpeed) >= 10)
 else if(Number(windSpeed) >= 5)
     windClass = "wind-mid";
 const windGust =
-    windGusts.length
+    windWeightTotal > 0
         ? (
             (
-                windGusts.reduce((a,b)=>a+b,0)
-                / windGusts.length
+                weightedWindGust
+                / windWeightTotal
             ) * WIND_FACTOR
           ).toFixed(1)
         : "--";
@@ -963,6 +1013,10 @@ else if(
 
 let pressures = [];
 
+let weightedPressure = 0;
+let pressureWeightTotal = 0;
+
+
 models.forEach(model => {
 
     const hourly =
@@ -992,27 +1046,38 @@ models.forEach(model => {
 
     if (dayPressures.length) {
 
-        pressures.push(
+const avgPressureModel =
 
-            dayPressures.reduce(
-                (a,b) => a + b,
-                0
-            ) / dayPressures.length
+    dayPressures.reduce(
+        (a,b) => a + b,
+        0
+    ) / dayPressures.length;
 
-        );
+pressures.push(avgPressureModel);
+
+const weight =
+    weights[model.model] ?? 0;
+
+weightedPressure +=
+    avgPressureModel * weight;
+
+pressureWeightTotal +=
+    weight;
+
 
     }
 
 });
 if(!pressures.length)
     continue;
+if(pressureWeightTotal === 0)
+    continue;
+
 const pressure =
-    (
-        pressures.reduce(
-            (a,b) => a + b,
-            0
-        ) / pressures.length
-    ).toFixed(1);
+(
+    weightedPressure
+    / pressureWeightTotal
+).toFixed(1);
             pressureHistory.push(
     Number(pressure)
 );
