@@ -271,7 +271,7 @@ def fetch_openmeteo(lat, lon, model):
         "wind_direction_10m,"
         "precipitation_probability,"
         "precipitation,"
-        "weathercode"
+        "weathercode,"
         "cloud_cover"
         "&forecast_days=7"
     )
