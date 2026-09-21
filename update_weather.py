@@ -272,6 +272,7 @@ def fetch_openmeteo(lat, lon, model):
         "precipitation_probability,"
         "precipitation,"
         "weathercode"
+        "cloud_cover"
         "&forecast_days=7"
     )
 
