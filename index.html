@@ -261,7 +261,13 @@ h1{
     color:#93c5fd;
     font-size:12px;
 }
+.overview-box{
+    bottom:130px !important;
+}
 
+.night-box{
+    bottom:80px !important;
+}
 }
 #forecastContent{
     display:grid;
@@ -1430,7 +1436,7 @@ ${rainFlag
 <span class="${confidenceBoxClass}">
 <strong>${confidenceText}</strong>
 </span>
-<div style="
+<div class="overview-box" style="
 position:absolute;
 bottom:170px;
 left:12px;
@@ -1451,7 +1457,7 @@ margin:0 0 12px 0;
 
 </div>
 
-<div style="
+<div class="night-box" style="
 position:absolute;
 bottom:110px;
 left:12px;
