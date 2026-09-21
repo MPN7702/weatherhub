@@ -43,6 +43,7 @@
     background:rgba(255,255,255,0.03);
     border:1px solid rgba(255,255,255,0.05);
     text-align:center;
+    height:560px;
 }
     
 body{
@@ -1430,30 +1431,66 @@ ${rainFlag
 <span class="${confidenceBoxClass}">
 <strong>${confidenceText}</strong>
 </span>
-<br><br>
+<hr style="
+border:none;
+border-top:1px solid #334155;
+margin:12px 0;
+">
 
+<div style="
+position:absolute;
+bottom:170px;
+left:12px;
+right:12px;
+height:120px;
+overflow:hidden;
+">
 🌦️ Översikt:
 <br>
 <strong>${weatherTextColored}</strong>
+</div>
 
-<br><br>
+<div style="
+position:absolute;
+bottom:110px;
+left:12px;
+right:12px;
+">
+
+<hr style="
+border:none;
+border-top:1px solid #334155;
+margin:12px 0;
+">
 
 ✨ Stjärnklart:
 <strong>${nightScore}%</strong>
-
 <br>
-
 🌌 Norrskenschans:
 <strong>${auroraScore}%</strong>
 
-<br><br>
+</div>
+
+<div style="
+position:absolute;
+bottom:10px;
+left:12px;
+right:12px;
+">
+
+<hr style="
+border:none;
+border-top:1px solid #334155;
+margin:12px 0;
+">
 
 ☀️ Sol
 <br>
 🌅 ${sunrise}
 <br>
 🌇 ${sunset}
-<br>
+
+</div>
 
 
                 </div>
