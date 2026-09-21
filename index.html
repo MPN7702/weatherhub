@@ -569,8 +569,6 @@ if (!hourlyTimes)
 let weightedRain = 0;
 let rainWeightTotal = 0;
 
-let rainTotals = [];
-
 models.forEach(model => {
 
     const hourly =
@@ -591,7 +589,6 @@ models.forEach(model => {
         }
     }
 
-    rainTotals.push(modelRainSum);
 
 const weight =
     weights[model.model] ?? 0;
@@ -602,8 +599,6 @@ weightedRain +=
 rainWeightTotal += weight;
 
 });
-if(!rainTotals.length)
-    continue;
 if(rainWeightTotal === 0)
     continue;
 
@@ -909,6 +904,12 @@ dayWinds.push(
     rainModelValues.push(dayRain);
 
 });
+            if(
+    !windModelValues.length ||
+    !rainModelValues.length
+){
+    continue;
+}
 const windSpread =
     Math.max(...windModelValues)
     -
