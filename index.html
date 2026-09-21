@@ -1562,7 +1562,7 @@ source.data =
     }
 
 }
-    function getMoonIllumination(date){
+function getMoonIllumination(date){
 
     const lp = 2551443;
 
@@ -1573,8 +1573,18 @@ source.data =
         ((date - newMoon) / 1000) % lp;
 
     const illumination =
-        (1 - Math.cos(
-            2 * Math.PI * phase / lp
+        (
+            1 -
+            Math.cos(
+                2 * Math.PI * phase / lp
+            )
+        ) / 2;
+
+    return Math.round(
+        illumination * 100
+    );
+}
+
        
 function getWindDirection(degrees) {
 
