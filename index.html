@@ -2063,22 +2063,18 @@ function getPeriodWeatherText(startHour, endHour){
 
 for(let i = 0; i < h.time.length; i++){
 
-const now = new Date();
-
-const targetDate =
-    `${now.getFullYear()}-${
-        String(now.getMonth()+1).padStart(2,'0')
-    }-${
-        String(now.getDate()).padStart(2,'0')
-    }`;
+const today =
+    new Date()
+        .toISOString()
+        .substring(0,10);
 
 
-    if(
-        h.time[i].substring(0,10)
-        !== targetDate
-    ){
-        continue;
-    }
+if(
+    h.time[i].substring(0,10)
+    !== today
+){
+    continue;
+}
 
     const hour =
         new Date(h.time[i]).getHours();
@@ -2153,22 +2149,18 @@ for(let i=0;i<h.time.length;i++){
 
     const t = new Date(h.time[i]);
 
-const now = new Date();
-
-const targetDate =
-    `${now.getFullYear()}-${
-        String(now.getMonth()+1).padStart(2,'0')
-    }-${
-        String(now.getDate()).padStart(2,'0')
-    }`;
+const today =
+    new Date()
+        .toISOString()
+        .substring(0,10);
 
 
-    if(
-        h.time[i].substring(0,10)
-        !== targetDate
-    ){
-        continue;
-    }
+if(
+    h.time[i].substring(0,10)
+    !== today
+){
+    continue;
+}
 
     const hh = t.getHours();
 
