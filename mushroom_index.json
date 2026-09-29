@@ -42,19 +42,19 @@
     "temp14": 9.9
   },
   "Torsby": {
-    "score": 47,
+    "score": 55,
     "season_closed": false,
     "rain14": 31.9,
     "temp14": 11.5
   },
   "Östmark": {
-    "score": 47,
+    "score": 55,
     "season_closed": false,
     "rain14": 30.4,
     "temp14": 11.0
   },
   "Värnäs": {
-    "score": 47,
+    "score": 55,
     "season_closed": false,
     "rain14": 34.8,
     "temp14": 10.7
@@ -72,19 +72,19 @@
     "temp14": 10.5
   },
   "Sunne": {
-    "score": 64,
+    "score": 72,
     "season_closed": false,
     "rain14": 49.1,
     "temp14": 12.5
   },
   "Munkfors": {
-    "score": 64,
+    "score": 72,
     "season_closed": false,
     "rain14": 62.9,
     "temp14": 12.1
   },
   "Hagfors": {
-    "score": 59,
+    "score": 67,
     "season_closed": false,
     "rain14": 49.6,
     "temp14": 11.2
@@ -96,7 +96,7 @@
     "temp14": 10.9
   },
   "Råda": {
-    "score": 59,
+    "score": 67,
     "season_closed": false,
     "rain14": 53.6,
     "temp14": 11.4
@@ -126,7 +126,7 @@
     "temp14": 11.8
   },
   "Kristinehamn": {
-    "score": 72,
+    "score": 64,
     "season_closed": false,
     "rain14": 54.8,
     "temp14": 13.1
@@ -150,7 +150,7 @@
     "temp14": 13.4
   },
   "Grums": {
-    "score": 52,
+    "score": 60,
     "season_closed": false,
     "rain14": 31.2,
     "temp14": 12.9
@@ -168,7 +168,7 @@
     "temp14": 12.6
   },
   "Charlottenberg": {
-    "score": 60,
+    "score": 52,
     "season_closed": false,
     "rain14": 27.0,
     "temp14": 12.0
@@ -180,13 +180,13 @@
     "temp14": 12.4
   },
   "Edane": {
-    "score": 64,
+    "score": 72,
     "season_closed": false,
     "rain14": 45.7,
     "temp14": 12.2
   },
   "Vålberg": {
-    "score": 60,
+    "score": 52,
     "season_closed": false,
     "rain14": 27.9,
     "temp14": 12.7
