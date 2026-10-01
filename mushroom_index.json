@@ -42,13 +42,13 @@
     "temp14": 9.7
   },
   "Torsby": {
-    "score": 40,
+    "score": 48,
     "season_closed": false,
     "rain14": 21.6,
     "temp14": 11.3
   },
   "Östmark": {
-    "score": 28,
+    "score": 36,
     "season_closed": false,
     "rain14": 17.5,
     "temp14": 10.9
@@ -72,19 +72,19 @@
     "temp14": 10.4
   },
   "Sunne": {
-    "score": 45,
+    "score": 53,
     "season_closed": false,
     "rain14": 27.2,
     "temp14": 12.4
   },
   "Munkfors": {
-    "score": 45,
+    "score": 53,
     "season_closed": false,
     "rain14": 35.7,
     "temp14": 12.0
   },
   "Hagfors": {
-    "score": 40,
+    "score": 48,
     "season_closed": false,
     "rain14": 23.9,
     "temp14": 11.1
@@ -96,73 +96,73 @@
     "temp14": 10.8
   },
   "Råda": {
-    "score": 40,
+    "score": 48,
     "season_closed": false,
     "rain14": 26.7,
     "temp14": 11.3
   },
   "Forshaga": {
-    "score": 33,
+    "score": 41,
     "season_closed": false,
     "rain14": 18.7,
     "temp14": 12.4
   },
   "Kil": {
-    "score": 33,
+    "score": 41,
     "season_closed": false,
     "rain14": 15.6,
     "temp14": 12.3
   },
   "Filipstad": {
-    "score": 40,
+    "score": 48,
     "season_closed": false,
     "rain14": 24.5,
     "temp14": 11.5
   },
   "Storfors": {
-    "score": 40,
+    "score": 48,
     "season_closed": false,
     "rain14": 28.4,
     "temp14": 11.6
   },
   "Kristinehamn": {
-    "score": 45,
+    "score": 53,
     "season_closed": false,
     "rain14": 30.0,
     "temp14": 12.8
   },
   "Lesjöfors": {
-    "score": 40,
+    "score": 48,
     "season_closed": false,
     "rain14": 25.0,
     "temp14": 10.7
   },
   "Nykroppa": {
-    "score": 40,
+    "score": 48,
     "season_closed": false,
     "rain14": 24.5,
     "temp14": 11.5
   },
   "Karlstad": {
-    "score": 33,
+    "score": 41,
     "season_closed": false,
     "rain14": 19.2,
     "temp14": 13.1
   },
   "Grums": {
-    "score": 33,
+    "score": 41,
     "season_closed": false,
     "rain14": 13.9,
     "temp14": 12.6
   },
   "Säffle": {
-    "score": 45,
+    "score": 53,
     "season_closed": false,
     "rain14": 23.4,
     "temp14": 13.0
   },
   "Arvika": {
-    "score": 33,
+    "score": 41,
     "season_closed": false,
     "rain14": 19.1,
     "temp14": 12.4
@@ -186,7 +186,7 @@
     "temp14": 12.0
   },
   "Vålberg": {
-    "score": 33,
+    "score": 41,
     "season_closed": false,
     "rain14": 12.9,
     "temp14": 12.4
