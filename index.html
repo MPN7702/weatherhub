@@ -137,7 +137,6 @@ h1{
 #weeklyForecast{
     width:60%;
     box-sizing:border-box;
-    transform-origin: top center;
 }
 
 .weather-box h2{
@@ -2920,32 +2919,7 @@ const response =
 
     }
 );
-    function scaleForecast(){
 
-    const forecast =
-        document.getElementById("weeklyForecast");
-
-    if(!forecast)
-        return;
-
-    const baseWidth = 1200;
-
-    const scale = Math.min(
-        1,
-        window.innerWidth / baseWidth
-    );
-
-    forecast.style.transform =
-        `scale(${scale})`;
-
-}
-
-window.addEventListener(
-    "resize",
-    scaleForecast
-);
-
-scaleForecast();
 startDashboard();
 updateFeedbackBox();
 
