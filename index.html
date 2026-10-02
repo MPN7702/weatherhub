@@ -47,7 +47,9 @@
     background:rgba(255,255,255,0.03);
     border:1px solid #60a5fa;
     text-align:center;
-    height:570px;
+    min-height:570px;
+    height:auto;
+
 }
 
 body{
@@ -135,6 +137,7 @@ h1{
 #weeklyForecast{
     width:60%;
     box-sizing:border-box;
+    transform-origin: top center;
 }
 
 .weather-box h2{
@@ -283,7 +286,8 @@ h1{
     font-size:14px;
     line-height:1.3;
     margin-bottom:6px;
-    height:500px;
+    min-height:700px;
+    height:auto;
 }
 
 .conf-span{
@@ -304,7 +308,7 @@ h1{
 }
 #forecastContent{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:8px;
 }
 .forecast-wrapper{
@@ -550,7 +554,7 @@ text-align:center;
         <br>
         • Soluppgång och solnedgång
         <br>
-        • Stjärnklart- och norrskensindikator
+        • Stjärnklart och kantarellindex
 
         <br><br>
 
@@ -638,7 +642,7 @@ if(window.cachedWeather){
 }else{
 
     const response =
-        await fetch("https://mpn7702.github.io/weather_dashboard/weather.json");
+        await fetch("weather.json");
 
     cache =
         await response.json();
@@ -1563,38 +1567,6 @@ nightScore = Math.max(
     Math.round(nightScore)
 );
 
-const kp =
-    window.cachedWeather
-        ?.space_weather
-        ?.kp ?? 0;
-
-const kpScore =
-    Math.min(
-        100,
-        kp * 20
-    );
-
-let visibilityScore =
-    nightScore -
-    (cloudCover * 0.8);
-
-visibilityScore = Math.max(
-    0,
-    visibilityScore
-);
-
-let auroraScore =
-(
-    kpScore * 0.5
-) +
-(
-    visibilityScore * 0.5
-);
-
-auroraScore = Math.max(
-    0,
-    Math.round(auroraScore)
-);
 
 html += `
                 <div class="forecast-day">
@@ -1803,7 +1775,7 @@ async function loadWeather(source){
         if(!window.cachedWeather){
 
             const response =
-                await fetch("https://mpn7702.github.io/weather_dashboard/weather.json");
+                await fetch("./weather.json");
 
             window.cachedWeather =
                 await response.json();
@@ -1880,37 +1852,25 @@ function getStars(score){
 
 }
 
-function getAuroraStars(score){
-    
-    const level =
-        Math.max(
-            1,
-            Math.ceil(score / 20)
-        );
-
-    return "🌌".repeat(level) +
-           "☆".repeat(5 - level);
-
-}
     
 function getMushroomStars(score){
 
-    if(score >= 95)
-        return "🍄🍄🍄🍄🍄";
+if(score >= 95)
+    return "🍄🍄🍄🍄🍄";
 
-    if(score >= 80)
-        return "🍄🍄🍄🍄☆";
+if(score >= 80)
+    return "🍄🍄🍄🍄☆";
 
-    if(score >= 65)
-        return "🍄🍄🍄☆☆";
+if(score >= 65)
+    return "🍄🍄🍄☆☆";
 
-    if(score >= 40)
-        return "🍄🍄☆☆☆";
+if(score >= 40)
+    return "🍄🍄☆☆☆";
 
-    if(score >= 25)
-        return "🍄☆☆☆☆";
+if(score >= 25)
+    return "🍄☆☆☆☆";
 
-    return "☆☆☆☆☆";
+return "☆☆☆☆☆";
 
 }
 
@@ -2706,7 +2666,7 @@ async function loadMushroomData(){
     try{
 
         const response =
-            await fetch("https://mpn7702.github.io/weather_dashboard/mushroom_index.json");
+            await fetch("mushroom_index.json");
 
         window.mushroomData =
             await response.json();
@@ -2804,7 +2764,7 @@ async function updateFeedbackBox() {
     try {
 
         const response =
-            await fetch("https://mpn7702.github.io/weather_dashboard/forecast_history.json");
+            await fetch("forecast_history.json");
 
         const history =
             await response.json();
@@ -2960,6 +2920,32 @@ const response =
 
     }
 );
+    function scaleForecast(){
+
+    const forecast =
+        document.getElementById("weeklyForecast");
+
+    if(!forecast)
+        return;
+
+    const baseWidth = 1200;
+
+    const scale = Math.min(
+        1,
+        window.innerWidth / baseWidth
+    );
+
+    forecast.style.transform =
+        `scale(${scale})`;
+
+}
+
+window.addEventListener(
+    "resize",
+    scaleForecast
+);
+
+scaleForecast();
 startDashboard();
 updateFeedbackBox();
 
