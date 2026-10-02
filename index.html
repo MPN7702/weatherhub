@@ -642,7 +642,7 @@ if(window.cachedWeather){
 }else{
 
     const response =
-        await fetch("weather.json");
+        await fetch("https://mpn7702.github.io/weather_dashboard/weather.json");
 
     cache =
         await response.json();
@@ -2666,7 +2666,7 @@ async function loadMushroomData(){
     try{
 
         const response =
-            await fetch("mushroom_index.json");
+            await fetch("https://mpn7702.github.io/weather_dashboard/mushroom_index.json");
 
         window.mushroomData =
             await response.json();
@@ -2764,7 +2764,7 @@ async function updateFeedbackBox() {
     try {
 
         const response =
-            await fetch("forecast_history.json");
+            await fetch("https://mpn7702.github.io/weather_dashboard/forecast_history.json");
 
         const history =
             await response.json();
