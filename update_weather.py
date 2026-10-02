@@ -366,6 +366,7 @@ def fetch_weekly(lat, lon):
 "surface_pressure_mean,"
 "sunrise,"
 "sunset"
+        f"&start_date={datetime.now().strftime('%Y-%m-%d')}"
         "&timezone=auto"
         "&forecast_days=7"
     )
@@ -520,13 +521,18 @@ for name, lat, lon in LOCATIONS:
     place["smhi"] = convert_smhi(smhi_raw)
     place["yr"] = convert_yr(yr_raw)
 
-    try:
-        place["weekly"] = fetch_weekly(
-            lat,
-            lon
-        )
+try:
+    place["weekly"] = fetch_weekly(
+        lat,
+        lon
+    )
 
-    except Exception as e:
+    print(
+        name,
+        place["weekly"]["daily"]["time"][:3]
+    )
+
+except Exception as e:
 
         print(
             f"Weekly misslyckades för {name}: {e}"
