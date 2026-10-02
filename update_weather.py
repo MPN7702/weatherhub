@@ -527,11 +527,6 @@ try:
         lon
     )
 
-    print(
-        name,
-        place["weekly"]["daily"]["time"][:3]
-    )
-
 except Exception as e:
 
         print(
